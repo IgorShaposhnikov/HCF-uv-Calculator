@@ -98,7 +98,7 @@ def main() -> None:
     dividend, divisor = map(int, input("НОД для: ").split())
     first_column_division = ColumnDivision(dividend, divisor)
     g = ColumnDivision.calc(first_column_division)
-    mod = g[-1].first_result
+    hcf = g[-1].first_result
     table = Table()
     for i, item in enumerate(g):
         item: ColumnDivision
@@ -122,7 +122,11 @@ def main() -> None:
         table.add_colunm(column)
 
     print(table)
-    print("d =", mod)
+    print("d =", hcf)
+    print("\n----- Проверка -----")
+    last_column = table.columns[table.column_count - 1]
+    print("{0} * {1} + {2} * {3} = {4}".format(dividend, last_column.un, divisor, last_column.vn, hcf))
+    print("{0} + {1} = {2}".format(dividend * last_column.un, divisor * last_column.vn, hcf))
 
 
 if __name__ == '__main__':
