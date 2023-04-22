@@ -95,7 +95,7 @@ class ColumnDivision:
 
 
 def main() -> None:
-    dividend, divisor = map(int, input().split())
+    dividend, divisor = map(int, input("НОД для: ").split())
     first_column_division = ColumnDivision(dividend, divisor)
     g = ColumnDivision.calc(first_column_division)
     mod = g[-1].first_result
